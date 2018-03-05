@@ -1,6 +1,11 @@
 # iottly-webhook-example
 A simple example application that forward **iottly** webhooks over web socket.
 
+The application is composed of 2 component:
+
+1. an HTTP server exposing a webhook to the iottly platform
+1. a sample Js application showing the messages forwarded to the webhook.
+
 ## Obtaining the example application source
 
 You can download the example application source code from [here](https://github.com/tomorrowdata/iottly-webhook-example/archive/master.zip).
@@ -17,7 +22,7 @@ git clone https://github.com/tomorrowdata/iottly-webhook-example.git
 Before running the application make sure to:
 
 - have a linux machine running python3
-- be able to reach this machine over the public Internet
+- be able to reach this machine over the public Internet (required to expose the webhook to **iottly**)
 
 In the `iottly-webhook-example` directory execute:
 
