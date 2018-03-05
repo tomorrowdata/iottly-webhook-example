@@ -1,5 +1,5 @@
 # iottly-webhook-example
-A simple example application that forward **iottly** webhooks over WS
+A simple example application that forward **iottly** webhooks over web socket.
 
 ## Obtaining the example application source
 
@@ -31,6 +31,10 @@ python3 server/main.py
 ```
 to start the server (**NOTE**: the server will listen by default on port 9000).
 
+The server will log informational messages on `stdout`.
+
+Use `Ctrl + C` to halt the server.
+
 
 ### Running using Docker
 
@@ -50,6 +54,20 @@ docker run -it -p0.0.0.0:<public port>:9000 iottly-example
 
 ## Configure a webhook in iottly
 
+Once the example application is up-and-running you should configure a **webhook** in your **iottly project**.
+The webhook URL should be set to the public domain/IP were the example application server is running followed by `/webhook/user`.
+ (**NOTE:** Use http or https protocol accordingly to your set-up).
 
+For this example application you should **uncheck** the "Send only payload?" option. In this configuration each message is
+forwarded to the webhook as received from the agent.
 
-More detailed docs on how to configure webhook in **iottly** can be found [here](https://iottly.github.io/dev/webhooks).
+![Setup the webhook](/docs/webhookconf.png)
+
+If you have never configured a webhook in **iottly** before, check out our simple tutorial [here](https://iottly.github.io/dev/webhooks).
+
+## Access the client
+
+The web client of the example application is served on the same domain. So you should simply point your browser (possibly a modern one) to the public url you have chosen.
+
+For your convenience each message received from web-socket
+is logged in your browser console.
